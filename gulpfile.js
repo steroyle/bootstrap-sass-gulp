@@ -38,13 +38,13 @@ gulp.task('scripts', function() {
 // copy bootstrap fonts to dest
 gulp.task('fonts', function () {
   return gulp
-    .src([source + 'fonts/*.*', bootstrapPath + 'assets/fonts/**/*'])
+    .src(bootstrapPath + 'assets/fonts/**/*')
     .pipe(gulp.dest(dest + 'fonts/'));
 });
 
 // default task
 gulp.task('default', ['sass', 'scripts', 'fonts'], function () {
-   gulp.watch([source + 'css/**/*'], ['sass']);
-   gulp.watch([source + 'js/**/*'], ['scripts']);
+   gulp.watch([source + 'css/**/*.scss'], ['sass']);
+   gulp.watch([source + 'js/**/*.js'], ['scripts']);
    gulp.watch([source + 'fonts/**/*'], ['fonts']);
 });
